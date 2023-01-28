@@ -1,15 +1,10 @@
 ---
-- name: Install Docker
-  hosts: all
-  # gather_facts: no
-  collections:   # Define collections to search
-    - community.docker
-  
-
 - name: Install Docker-Compose
   hosts: all
   # gather_facts: no
   roles:
+    - role: geerlingguy.docker
+      become: true
     - role: andrewrothstein.docker-compose
       become: true
   
